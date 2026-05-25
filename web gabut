@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rifqi Fadilah Syahputra | Anime Tech</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050816;
+      color:white;
+      font-family:'Poppins', sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* BACKGROUND ANIME */
+
+    body::before{
+      content:"";
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at top left,#7c3aed55,transparent 30%),
+      radial-gradient(circle at bottom right,#06b6d455,transparent 30%);
+      z-index:-1;
+    }
+
+    /* NAVBAR */
+
+    header{
+      width:100%;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      background:rgba(5,8,22,0.8);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo{
+      font-size:28px;
+      font-family:'Orbitron', sans-serif;
+      color:#8b5cf6;
+      text-shadow:0 0 20px #8b5cf6;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:30px;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:#8b5cf6;
+      text-shadow:0 0 10px #8b5cf6;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:120px 8%;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h3{
+      color:#06b6d4;
+      margin-bottom:15px;
+      letter-spacing:2px;
+    }
+
+    .hero-text h1{
+      font-size:65px;
+      line-height:1.2;
+      margin-bottom:20px;
+      font-family:'Orbitron', sans-serif;
+    }
+
+    .hero-text span{
+      color:#8b5cf6;
+      text-shadow:0 0 20px #8b5cf6;
+    }
+
+    .hero-text p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:30px;
+      max-width:600px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 35px;
+      background:linear-gradient(135deg,#8b5cf6,#06b6d4);
+      color:white;
+      text-decoration:none;
+      border-radius:14px;
+      font-weight:600;
+      transition:0.3s;
+      box-shadow:0 0 20px #8b5cf655;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 35px #8b5cf6;
+    }
+
+    /* ANIME CARD */
+
+    .anime-card{
+      width:350px;
+      height:420px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:25px;
+      backdrop-filter:blur(10px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      box-shadow:0 0 30px rgba(139,92,246,0.3);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .anime-card::before{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:linear-gradient(#8b5cf6,#06b6d4);
+      animation:rotate 8s linear infinite;
+    }
+
+    .anime-card::after{
+      content:"";
+      position:absolute;
+      inset:4px;
+      background:#050816;
+      border-radius:20px;
+    }
+
+    .anime-content{
+      position:relative;
+      z-index:1;
+      text-align:center;
+      padding:20px;
+    }
+
+    .anime-content img{
+      width:180px;
+      border-radius:20px;
+      margin-bottom:20px;
+      box-shadow:0 0 25px #8b5cf6;
+    }
+
+    .anime-content h2{
+      font-family:'Orbitron', sans-serif;
+      color:#8b5cf6;
+      margin-bottom:10px;
+    }
+
+    .anime-content p{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    @keyframes rotate{
+      100%{
+        transform:rotate(360deg);
+      }
+    }
+
+    /* SECTION */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .title h2{
+      font-size:42px;
+      font-family:'Orbitron', sans-serif;
+      color:#8b5cf6;
+    }
+
+    /* ABOUT */
+
+    .about-box{
+      background:rgba(255,255,255,0.05);
+      padding:40px;
+      border-radius:25px;
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(10px);
+      line-height:1.9;
+      color:#cbd5e1;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:25px;
+    }
+
+    .skill-card{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.1);
+      transition:0.3s;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 25px #8b5cf655;
+    }
+
+    .skill-card h3{
+      color:#06b6d4;
+      margin-bottom:15px;
+    }
+
+    .skill-card p{
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+
+    /* PROJECT */
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.1);
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 25px #06b6d455;
+    }
+
+    .project-card h3{
+      color:#8b5cf6;
+      margin-bottom:15px;
+    }
+
+    .project-card p{
+      color:#cbd5e1;
+      line-height:1.8;
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      background:rgba(255,255,255,0.05);
+      padding:40px;
+      border-radius:25px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.1);
+      line-height:2;
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:30px;
+      border-top:1px solid rgba(255,255,255,0.1);
+      color:#94a3b8;
+      margin-top:50px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      nav{
+        display:none;
+      }
+
+      .hero-text h1{
+        font-size:45px;
+      }
+
+      .anime-card{
+        width:280px;
+        height:360px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header>
+
+    <div class="logo">RIFQI.exe</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#project">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h3>⚡ ANIME TECHNOLOGY PORTFOLIO</h3>
+
+      <h1>
+        Rifqi <br>
+        <span>Fadilah Syahputra</span>
+      </h1>
+
+      <p>
+        Website portfolio bertema anime futuristik
+        dengan nuansa cyber technology modern,
+        inspired by anime aesthetic dan digital UI.
+      </p>
+
+      <a href="#about" class="btn">Explore More</a>
+
+    </div>
+
+    <div class="anime-card">
+
+      <div class="anime-content">
+
+        <img src="https://i.imgur.com/QIrZWGIs.jpg" alt="anime">
+
+        <h2>CYBER MODE</h2>
+
+        <p>
+          Anime • Technology • Future • Digital
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="title">
+      <h2>About Me</h2>
+    </div>
+
+    <div class="about-box">
+
+      <p>
+        Halo, nama saya <b>Rifqi Fadilah Syahputra</b>.
+        Saya tertarik pada dunia teknologi,
+        coding, desain website, dan anime aesthetic modern.
+      </p>
+
+      <br>
+
+      <p>
+        Saya suka membuat tampilan website futuristik
+        dengan kombinasi cyber UI, neon color,
+        dan unsur anime populer.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <div class="title">
+      <h2>Tech Skills</h2>
+    </div>
+
+    <div class="skills">
+
+      <div class="skill-card">
+        <h3>💻 HTML</h3>
+        <p>Membuat struktur website modern dan responsive.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>🎨 CSS</h3>
+        <p>Mendesain UI anime cyber aesthetic modern.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>⚡ JavaScript</h3>
+        <p>Membuat website interaktif dan dinamis.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>🌌 UI Design</h3>
+        <p>Desain futuristik dengan tema anime technology.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECT -->
+
+  <section id="project">
+
+    <div class="title">
+      <h2>Projects</h2>
+    </div>
+
+    <div class="projects">
+
+      <div class="project-card">
+        <h3>🌐 Anime Portfolio</h3>
+
+        <p>
+          Website portfolio modern bertema anime cyber futuristic.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>🎮 Gaming UI</h3>
+
+        <p>
+          Membuat desain interface gaming dan anime dashboard.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>⚙ Digital Project</h3>
+
+        <p>
+          Project coding dan teknologi dengan tampilan neon modern.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="title">
+      <h2>Contact</h2>
+    </div>
+
+    <div class="contact-box">
+
+      <p>📧 rifqi@gmail.com</p>
+      <p>📱 Instagram : @rifqi</p>
+      <p>🌍 Indonesia</p>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Rifqi Fadilah Syahputra | Anime Technology Portfolio
+    </p>
+
+  </footer>
+
+</body>
+</html>
